@@ -134,7 +134,9 @@ export const skills = {
 
 // Personal info
 export const personalInfo = {
-  name: "Raphaël",
+  name: "Raphaël Hoarau",
+  firstName: "Raphaël",
+  lastName: "Hoarau",
   title: "Développeur Full Stack",
   subtitle: "Étudiant à Epitech",
   location: "La Réunion, France",

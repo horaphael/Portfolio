@@ -33,7 +33,7 @@ const SkillCategory = ({ title, skillList, icon, delay }) => {
     >
       <div className="flex items-center gap-3 mb-6">
         <span className="text-2xl">{icon}</span>
-        <h3 className="text-xl font-bold text-white">{title}</h3>
+        <h3 className="text-lg font-bold text-white">{title}</h3>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {skillList.map((skill, index) => (
@@ -57,10 +57,10 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 px-4 relative">
+    <section id="skills" className="py-20 px-4 relative bg-[#0b0b0b]">
       {/* Background decoration */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl -translate-y-1/2" />
-      <div className="absolute top-1/2 right-0 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl -translate-y-1/2" />
+        <div className="absolute top-1/2 left-0 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl -translate-y-1/2" />
+      <div className="absolute top-1/2 right-0 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl -translate-y-1/2" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}

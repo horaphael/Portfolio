@@ -1,101 +1,184 @@
-import { ChevronDown, Github, Linkedin, Mail, Download } from 'lucide-react';
+import { useState } from 'react';
+import { Github, Linkedin, Mail, MapPin, Download, LayoutGrid, FileText, FolderOpen, Zap, Link2 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
+const TABS = [
+  { id: 'home',     label: 'Home',     Icon: LayoutGrid },
+  { id: 'about',    label: 'Summary',  Icon: FileText   },
+  { id: 'projects', label: 'Projects', Icon: FolderOpen },
+  { id: 'skills',   label: 'Skills',   Icon: Zap        },
+  { id: 'contact',  label: 'Links',    Icon: Link2      },
+];
+
 const Hero = () => {
+  const [activeTab, setActiveTab] = useState('home');
+
+  const handleTab = (id) => {
+    setActiveTab(id);
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        {/* Gradient orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '4s' }} />
-        
-        {/* Grid pattern */}
-        <div className="absolute inset-0 opacity-5" 
-             style={{ 
-               backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
-               backgroundSize: '50px 50px'
-             }} 
-        />
+    <section
+      id="home"
+      className="relative w-full min-h-screen overflow-hidden bg-[#0f0f0f] flex flex-col items-center"
+    >
+      {/* ── Background: centered radial amber glow ── */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(ellipse 65% 55% at 50% 42%, rgba(180,70,0,0.40) 0%, rgba(90,30,0,0.18) 50%, transparent 70%)',
+        }}
+      />
+      {/* Subtle noise grain */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        style={{
+          backgroundImage:
+            'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E")',
+        }}
+      />
+
+      {/* ── TOP BAR ── */}
+      <div className="relative z-10 w-full flex items-center justify-between px-6 sm:px-10 md:px-16 pt-6">
+        {/* Open to work badge */}
+        <div
+          className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-gray-300"
+          style={{
+            background: 'rgba(255,255,255,0.06)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            border: '1px solid rgba(255,255,255,0.10)',
+          }}
+        >
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-green-400" />
+          </span>
+          Open to work
+        </div>
+
+        {/* Download CV */}
+        <a
+          href="/cv.pdf"
+          download
+          className="flex items-center gap-2 bg-amber-400 hover:bg-amber-300 active:scale-95 text-black text-sm font-bold px-5 py-2 rounded-full transition-all hover:scale-105 shadow-lg shadow-amber-500/20"
+        >
+          <Download className="w-3.5 h-3.5" />
+          Download CV
+        </a>
       </div>
 
-      <div className="relative z-10 text-center max-w-5xl mx-auto px-4">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-light mb-8 animate-fade-in">
-          <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-          <span className="text-sm text-gray-300">Disponible pour des opportunités</span>
-        </div>
+      {/* ── CENTERED HERO CONTENT ── */}
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 py-12 w-full max-w-4xl mx-auto">
 
-        {/* Main Title */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 animate-slide-up">
-          <span className="text-white">Salut, je suis </span>
-          <span className="gradient-text">{personalInfo.name}</span>
-        </h1>
-
-        {/* Subtitle */}
-        <p className="text-xl sm:text-2xl md:text-3xl text-gray-400 mb-4 animate-slide-up" style={{ animationDelay: '0.1s' }}>
+        {/* Role */}
+        <p className="text-amber-400 font-semibold text-sm sm:text-base tracking-[0.25em] uppercase mb-6 animate-slide-up">
           {personalInfo.title}
         </p>
-        
-        <p className="text-lg text-gray-500 mb-8 animate-slide-up" style={{ animationDelay: '0.2s' }}>
-          {personalInfo.subtitle} • {personalInfo.location}
-        </p>
 
-        {/* Description */}
-        <p className="text-gray-400 max-w-2xl mx-auto mb-10 animate-slide-up" style={{ animationDelay: '0.3s' }}>
-          Je crée des applications modernes et performantes, du développement de jeux vidéo 
-          aux applications web en passant par le machine learning.
-        </p>
+        {/* Name */}
+        <h1
+          className="font-black text-white leading-[0.88] tracking-tight mb-12 animate-slide-up"
+          style={{
+            fontSize: 'clamp(4.5rem, 12vw, 11rem)',
+            animationDelay: '0.06s',
+            textShadow: '0 4px 80px rgba(0,0,0,0.9)',
+          }}
+        >
+          {personalInfo.firstName}
+          <br />
+          <span
+            style={{
+              background: 'linear-gradient(135deg, #f59e0b 0%, #f97316 55%, #ef4444 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            {personalInfo.lastName}
+          </span>
+        </h1>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-4 animate-slide-up" style={{ animationDelay: '0.4s' }}>
-          <a
-            href="#projects"
-            className="px-8 py-4 bg-gradient-to-r from-primary-500 to-purple-500 rounded-xl font-semibold text-white hover:opacity-90 transition-all hover:scale-105 glow-blue"
-          >
-            Voir mes projets
-          </a>
-          <a
-            href="#contact"
-            className="px-8 py-4 glass rounded-xl font-semibold text-white hover:bg-white/10 transition-all hover:scale-105"
-          >
-            Me contacter
-          </a>
+        {/* Contact pills — 2×2 on mobile, 4 cols on sm+ */}
+        <div
+          className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full max-w-2xl animate-slide-up"
+          style={{ animationDelay: '0.15s' }}
+        >
+          {[
+            { Icon: Mail,     label: personalInfo.email,           href: `mailto:${personalInfo.email}` },
+            { Icon: Linkedin, label: 'linkedin.com/in/raphael-h',  href: personalInfo.linkedin, external: true },
+            { Icon: Github,   label: 'github.com/horaphael',       href: personalInfo.github,   external: true },
+            { Icon: MapPin,   label: personalInfo.location,        href: null },
+          ].map(({ Icon, label, href, external }) => {
+            const inner = (
+              <>
+                <span
+                  className="w-7 h-7 rounded-md flex items-center justify-center flex-shrink-0 text-amber-400"
+                  style={{ background: 'rgba(245,158,11,0.12)' }}
+                >
+                  <Icon className="w-3.5 h-3.5" />
+                </span>
+                <span className="truncate text-gray-200 text-xs sm:text-sm">{label}</span>
+              </>
+            );
+            const cls   = 'flex items-center gap-2.5 px-3 py-2.5 rounded-xl transition-all hover:brightness-125';
+            const style = {
+              background: 'rgba(255,255,255,0.05)',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255,255,255,0.09)',
+            };
+            return href ? (
+              <a
+                key={label}
+                href={href}
+                {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
+                className={cls}
+                style={style}
+              >
+                {inner}
+              </a>
+            ) : (
+              <div key={label} className={cls} style={style}>
+                {inner}
+              </div>
+            );
+          })}
         </div>
+      </div>
 
-        {/* Social Links */}
-        <div className="flex items-center justify-center gap-6 mt-12 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-          <a
-            href={personalInfo.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 glass rounded-xl hover:bg-white/10 transition-all hover:scale-110"
-          >
-            <Github className="w-6 h-6" />
-          </a>
-          <a
-            href={personalInfo.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 glass rounded-xl hover:bg-white/10 transition-all hover:scale-110"
-          >
-            <Linkedin className="w-6 h-6" />
-          </a>
-          <a
-            href={`mailto:${personalInfo.email}`}
-            className="p-3 glass rounded-xl hover:bg-white/10 transition-all hover:scale-110"
-          >
-            <Mail className="w-6 h-6" />
-          </a>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
-          <a href="#projects" className="flex flex-col items-center text-gray-500 hover:text-white transition-colors">
-            <span className="text-sm mb-2">Scroll</span>
-            <ChevronDown className="w-6 h-6" />
-          </a>
+      {/* ── BOTTOM NAV TABS ── */}
+      <div
+        className="relative z-10 flex justify-center w-full px-6 pb-8 animate-fade-in"
+        style={{ animationDelay: '0.3s' }}
+      >
+        <div
+          className="flex gap-1.5 flex-wrap justify-center p-1.5 rounded-2xl"
+          style={{
+            background: 'rgba(255,255,255,0.04)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            border: '1px solid rgba(255,255,255,0.08)',
+          }}
+        >
+          {TABS.map(({ id, label, Icon }) => (
+            <button
+              key={id}
+              onClick={() => handleTab(id)}
+              className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200"
+              style={
+                activeTab === id
+                  ? { background: 'rgba(255,255,255,0.95)', color: '#000', boxShadow: '0 2px 14px rgba(0,0,0,0.3)' }
+                  : { color: 'rgba(200,200,200,0.85)' }
+              }
+            >
+              <Icon className="w-3.5 h-3.5" />
+              {label}
+            </button>
+          ))}
         </div>
       </div>
     </section>

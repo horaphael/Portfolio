@@ -48,9 +48,9 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 px-4 relative">
+    <section id="contact" className="py-20 px-4 relative bg-[#0f0f0f]">
       {/* Background decoration */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-gradient-to-t from-primary-500/5 to-transparent" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-gradient-to-t from-amber-500/5 to-transparent" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
@@ -72,20 +72,20 @@ const Contact = () => {
               
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-primary-500/10">
-                    <Mail className="w-6 h-6 text-primary-400" />
+                  <div className="p-3 rounded-xl bg-amber-500/10">
+                    <Mail className="w-6 h-6 text-amber-400" />
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Email</p>
-                    <a href={`mailto:${personalInfo.email}`} className="text-white hover:text-primary-400 transition-colors">
+                    <a href={`mailto:${personalInfo.email}`} className="text-white hover:text-amber-400 transition-colors">
                       {personalInfo.email}
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-primary-500/10">
-                    <MapPin className="w-6 h-6 text-primary-400" />
+                  <div className="p-3 rounded-xl bg-amber-500/10">
+                    <MapPin className="w-6 h-6 text-amber-400" />
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Localisation</p>
@@ -143,7 +143,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-dark-100 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary-500 transition-colors"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 transition-colors"
                       placeholder="Votre nom"
                     />
                   </div>
@@ -155,7 +155,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-dark-100 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary-500 transition-colors"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 transition-colors"
                       placeholder="votre@email.com"
                     />
                   </div>
@@ -169,7 +169,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-dark-100 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary-500 transition-colors"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 transition-colors"
                     placeholder="Sujet de votre message"
                   />
                 </div>
@@ -182,14 +182,14 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 bg-dark-100 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary-500 transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 transition-colors resize-none"
                     placeholder="Votre message..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-4 bg-gradient-to-r from-primary-500 to-purple-500 rounded-xl font-semibold text-white hover:opacity-90 transition-all hover:scale-[1.02] flex items-center justify-center gap-2"
+                  className="w-full py-4 bg-amber-400 hover:bg-amber-300 text-black rounded-xl font-bold transition-all hover:scale-[1.02] flex items-center justify-center gap-2"
                 >
                   <Send className="w-5 h-5" />
                   Envoyer le message

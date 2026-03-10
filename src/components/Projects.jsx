@@ -25,12 +25,12 @@ const ProjectCard = ({ project, onClick }) => {
       <div className="p-6">
         <div className="flex items-start justify-between mb-3">
           <div>
-            <h3 className="text-xl font-bold text-white group-hover:text-primary-400 transition-colors">
+            <h3 className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
               {project.title}
             </h3>
             <p className="text-gray-400 text-sm">{project.subtitle}</p>
           </div>
-          <ChevronRight className="w-5 h-5 text-gray-500 group-hover:text-primary-400 group-hover:translate-x-1 transition-all" />
+          <ChevronRight className="w-5 h-5 text-gray-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-all" />
         </div>
 
         <p className="text-gray-400 text-sm mb-4 line-clamp-2">
@@ -61,7 +61,7 @@ const ProjectModal = ({ project, onClose }) => {
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
       
       <div
-        className="relative bg-dark-200 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto animate-slide-up"
+        className="relative bg-[#161616] rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto animate-slide-up border border-white/10"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -100,7 +100,7 @@ const ProjectModal = ({ project, onClose }) => {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
               {project.features.map((feature) => (
                 <div key={feature} className="flex items-center gap-2 text-gray-400">
-                  <span className="w-2 h-2 bg-primary-500 rounded-full" />
+                  <span className="w-2 h-2 bg-amber-400 rounded-full" />
                   {feature}
                 </div>
               ))}
@@ -135,8 +135,8 @@ const ProjectModal = ({ project, onClose }) => {
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-500 to-purple-500 rounded-xl hover:opacity-90 transition-opacity"
-              >
+                className="flex items-center gap-2 px-6 py-3 bg-amber-400 text-black font-semibold rounded-xl hover:bg-amber-300 transition-colors"
+            >
                 <ExternalLink className="w-5 h-5" />
                 Voir la démo
               </a>
@@ -152,7 +152,7 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section id="projects" className="py-20 px-4">
+    <section id="projects" className="py-20 px-4 bg-[#0f0f0f]">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">

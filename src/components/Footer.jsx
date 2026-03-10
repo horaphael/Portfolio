@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Logo & Copyright */}
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-purple-500 flex items-center justify-center text-white font-bold">
+            <div className="w-8 h-8 rounded-lg bg-amber-400 flex items-center justify-center text-black font-bold">
               R
             </div>
             <span className="text-gray-400 text-sm">

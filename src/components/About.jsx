@@ -24,7 +24,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 px-4 relative">
+    <section id="about" className="py-20 px-4 relative bg-[#0b0b0b]">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -38,7 +38,7 @@ const About = () => {
           <div className="flex flex-col items-center lg:items-start animate-slide-in-left">
             {/* Avatar */}
             <div className="relative mb-8">
-              <div className="w-64 h-64 rounded-3xl bg-gradient-to-br from-primary-500 to-purple-500 flex items-center justify-center text-9xl animate-float">
+              <div className="w-64 h-64 rounded-3xl bg-gradient-to-br from-amber-500 to-purple-500 flex items-center justify-center text-9xl animate-float">
                 👨‍💻
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 glass rounded-2xl flex items-center justify-center">
@@ -49,21 +49,21 @@ const About = () => {
             {/* Quick Info */}
             <div className="space-y-4 w-full max-w-sm">
               <div className="glass rounded-xl p-4 flex items-center gap-4">
-                <MapPin className="w-5 h-5 text-primary-400" />
+                <MapPin className="w-5 h-5 text-amber-400" />
                 <div>
                   <p className="text-gray-400 text-sm">Localisation</p>
                   <p className="text-white">{personalInfo.location}</p>
                 </div>
               </div>
               <div className="glass rounded-xl p-4 flex items-center gap-4">
-                <GraduationCap className="w-5 h-5 text-primary-400" />
+                <GraduationCap className="w-5 h-5 text-amber-400" />
                 <div>
                   <p className="text-gray-400 text-sm">Formation</p>
                   <p className="text-white">{personalInfo.subtitle}</p>
                 </div>
               </div>
               <div className="glass rounded-xl p-4 flex items-center gap-4">
-                <Heart className="w-5 h-5 text-primary-400" />
+                <Heart className="w-5 h-5 text-amber-400" />
                 <div>
                   <p className="text-gray-400 text-sm">Passions</p>
                   <p className="text-white">{personalInfo.interests.join(', ')}</p>
@@ -85,7 +85,7 @@ const About = () => {
             {/* Timeline */}
             <div className="glass rounded-2xl p-8">
               <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-                <Calendar className="w-6 h-6 text-primary-400" />
+                <Calendar className="w-6 h-6 text-amber-400" />
                 Parcours
               </h3>
               <div className="space-y-6">
@@ -93,18 +93,18 @@ const About = () => {
                   <div key={index} className="relative flex gap-4">
                     {/* Timeline line */}
                     {index < timeline.length - 1 && (
-                      <div className="absolute left-5 top-12 w-0.5 h-full bg-gradient-to-b from-primary-500 to-transparent" />
+                      <div className="absolute left-5 top-12 w-0.5 h-full bg-gradient-to-b from-amber-500 to-transparent" />
                     )}
                     
                     {/* Icon */}
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-purple-500 flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center flex-shrink-0">
                       <span>{item.icon}</span>
                     </div>
                     
                     {/* Content */}
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-primary-400 font-mono text-sm">{item.year}</span>
+                        <span className="text-amber-400 font-mono text-sm">{item.year}</span>
                       </div>
                       <h4 className="text-white font-semibold">{item.title}</h4>
                       <p className="text-gray-400 text-sm">{item.description}</p>
