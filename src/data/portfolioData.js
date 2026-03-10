@@ -16,7 +16,7 @@ export const projects = [
       • Système de salles et matchmaking
       • Synchronisation réseau en temps réel
     `,
-    image: "🚀",
+    image: "",
     technologies: ["C++", "SFML", "UDP", "ECS", "CMake", "Conan"],
     category: "Game Development",
     github: "https://github.com/horaphael/r-type",
@@ -48,7 +48,7 @@ export const projects = [
       • Interface moderne avec design glassmorphism
       • Notifications de fin de session
     `,
-    image: "🎯",
+    image: "",
     technologies: ["JavaScript", "Chrome API", "HTML/CSS", "Manifest V3"],
     category: "Browser Extension",
     github: "https://github.com/horaphael/FocusBlocker",
@@ -80,7 +80,7 @@ export const projects = [
       • Tests sur portes logiques (AND, OR, XOR)
       • Visualisation de la convergence
     `,
-    image: "🧠",
+    image: "",
     technologies: ["Python", "Machine Learning", "JSON", "Algorithmique"],
     category: "AI / Machine Learning",
     github: "https://github.com/horaphael/neural-network",

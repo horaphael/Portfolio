@@ -7,19 +7,16 @@ const About = () => {
       year: "2024",
       title: "Tek 3 - Epitech",
       description: "Projets avancés: R-Type (C++), Architecture logicielle",
-      icon: "🎓"
     },
     {
       year: "2023",
       title: "Tek 2 - Epitech",
       description: "Développement C/C++, Réseaux, Bases de données",
-      icon: "💻"
     },
     {
       year: "2022",
       title: "Tek 1 - Epitech",
       description: "Fondamentaux: C, Shell, Algorithmique",
-      icon: "🚀"
     },
   ];
 
@@ -38,11 +35,8 @@ const About = () => {
           <div className="flex flex-col items-center lg:items-start animate-slide-in-left">
             {/* Avatar */}
             <div className="relative mb-8">
-              <div className="w-64 h-64 rounded-3xl bg-gradient-to-br from-amber-500 to-purple-500 flex items-center justify-center text-9xl animate-float">
-                👨‍💻
-              </div>
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 glass rounded-2xl flex items-center justify-center">
-                <span className="text-4xl">🎮</span>
+              <div className="w-64 h-64 rounded-3xl bg-gradient-to-br from-amber-500 to-purple-500 flex items-center justify-center animate-float">
+                <span className="text-7xl font-black text-white/90 tracking-tighter">RH</span>
               </div>
             </div>
 
@@ -98,7 +92,7 @@ const About = () => {
                     
                     {/* Icon */}
                     <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center flex-shrink-0">
-                      <span>{item.icon}</span>
+                      <GraduationCap className="w-5 h-5 text-white" />
                     </div>
                     
                     {/* Content */}

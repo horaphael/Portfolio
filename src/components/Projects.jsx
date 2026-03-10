@@ -10,8 +10,11 @@ const ProjectCard = ({ project, onClick }) => {
     >
       {/* Project Image/Icon */}
       <div className={`h-48 bg-gradient-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}>
-        <span className="text-8xl group-hover:scale-110 transition-transform duration-500">
-          {project.image}
+        <span
+          className="font-black text-white/90 tracking-tighter group-hover:scale-105 transition-transform duration-500 px-4 text-center"
+          style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}
+        >
+          {project.title}
         </span>
         <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity" />
         <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -66,7 +69,7 @@ const ProjectModal = ({ project, onClose }) => {
       >
         {/* Header */}
         <div className={`h-64 bg-gradient-to-br ${project.color} flex items-center justify-center relative`}>
-          <span className="text-9xl">{project.image}</span>
+          <span className="font-black text-white/90 text-4xl tracking-tighter">{project.title}</span>
           <button
             onClick={onClose}
             className="absolute top-4 right-4 p-2 bg-black/30 rounded-full backdrop-blur-sm hover:bg-black/50 transition-colors"
@@ -184,7 +187,7 @@ const Projects = () => {
         {/* More projects coming */}
         <div className="text-center mt-12">
           <p className="text-gray-500">
-            Plus de projets à venir... 🚀
+            Plus de projets à venir...
           </p>
         </div>
       </div>
